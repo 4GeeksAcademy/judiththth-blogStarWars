@@ -6,8 +6,10 @@ export const Navbar = () => {
 
 	const { store, dispatch } = useGlobalReducer()
 
-console.log(store.favs);
-
+	function deleteFav(name) {
+		dispatch({type: "delete_favs", payload: name})
+		
+	}
 
 	return (
 		<nav className="navbar navbar-light bg-light">
@@ -27,11 +29,11 @@ console.log(store.favs);
 					</button>
 					<ul className="dropdown-menu">
 						{store.favs.map((item, index) => (
-						<li key={index} className="list-group-item d-flex justify-content-between align-items-center">
-							<span>{item.name}</span>
-							<button className="btn btn-sm btn-outline-danger" >×</button>
-						</li>
-					))}
+							<li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+								<span>{item.name}</span>
+								<button className="btn btn-sm btn-outline-danger" onClick={()=>deleteFav(item.name)}>×</button>
+							</li>
+						))}
 
 					</ul>
 				</div>
