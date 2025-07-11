@@ -1,18 +1,34 @@
 export const initialStore = () => {
   return {
     characters: [],
+    vehicles: [],
+    planets: [],
     favs: []
   }
 }
 
 export default function storeReducer(store, action = {}) {
   switch (action.type) {
-    
+
     case "update_characters":
 
       return {
         ...store,
         characters: action.payload
+      };
+
+    case "update_planets":
+
+      return {
+        ...store,
+        planets: action.payload
+      };
+
+    case "update_vehicles":
+
+      return {
+        ...store,
+        vehicles: action.payload
       };
 
     case "add_favs":
@@ -26,7 +42,7 @@ export default function storeReducer(store, action = {}) {
 
       return {
         ...store,
-        favs: store.favs.filter((item, index)=>item.name !== action.payload)
+        favs: store.favs.filter((item, index) => item.name !== action.payload)
       };
 
 

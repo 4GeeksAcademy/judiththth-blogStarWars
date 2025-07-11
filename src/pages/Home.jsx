@@ -1,54 +1,36 @@
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
-import { Card } from "../components/Card.jsx";
+import { CharacterCard } from "../components/CharacterCard.jsx";
 import { useEffect, useState } from "react";
-import { getCharacters } from "../services/starwarsServices.js";
+import { getCharacters, getPlanets, getVehicles } from "../services/starwarsServices.js";
 
 export const Home = () => {
 
 	const { store, dispatch } = useGlobalReducer()
 
-	// async function getPlanets() {
-	// 	try {
-	// 		let response = await fetch("https://www.swapi.tech/api/planets", { method: "GET" }
-	// 		)
-	// 		let data = await response.json()
-	// 		setCharacters()
-	// 	}
-
-	// 	catch (error) {
-	// 		console.log(error);
-
-	// 	}
-	// }
-
-	// async function getVehicles() {
-	// 	try {
-	// 		let response = await fetch("https://www.swapi.tech/api/planets", { method: "GET" }
-	// 		)
-	// 		let data = await response.json()
-	// 		setCharacters(data.result)
-	// 	}
-
-	// 	catch (error) {
-	// 		console.log(error);
-
-	// 	}
-	// }
-
 	useEffect(() => {
 		getCharacters()
 		.then((data)=>dispatch({type:"update_characters", payload: data}))
 		
-		// getPlanets()
-		// getVehicles()
+		getPlanets()
+		.then((data)=>dispatch({type:"update_planets", payload: data}))
+
+		getVehicles()
+		.then((data)=>dispatch({type:"update_vehicles", payload: data}))
 	}, []);
 
 
 	return (
-		<div className="text-center mt-5">
-			<h1>Personajes</h1>
-			{store.characters.map((item)=><Card name={item.name} gender={item.gender} hair={item.hair_color} eyes={item.eye_color} key={item.uid}/>)}
+			
+		<div className="text-center mt-5" >
+			<div className="row">
+			{store.characters.map((item)=>
+			<div className="col" key={item.uid}>
+			<CharacterCard name={item.properties.name} id={item.uid} gender={item.properties.gender} hair={item.properties.hair_color} eyes={item.properties.eye_color} /></div>)}
+			
+			</div>
 
+			{/* {store.planets.map((item)=><PlanetCard name={item.name} key={item.uid}/>)}
+			{store.vehicles.map((item)=><VehicleCard name={item.name} key={item.uid}/>)} */}
 		</div>
 	);
 }; 

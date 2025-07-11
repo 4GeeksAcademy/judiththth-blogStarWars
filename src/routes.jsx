@@ -1,4 +1,3 @@
-// Import necessary components and functions from react-router-dom.
 
 import {
     createBrowserRouter,
@@ -15,7 +14,7 @@ export const router = createBrowserRouter(
       <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
 
         <Route path= "/" element={<Home />} />
-        <Route path="/details" element={<Details />} />
+        <Route path="/details/:id" element={<Details />} />
       </Route>
     )
 );
