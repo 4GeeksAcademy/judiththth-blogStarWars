@@ -14,9 +14,9 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-light bg-light">
 			<div className="container">
-				<Link to="/">
+				<a href="/"> {/* Con el Link to se rompe el código y muestra un Not found! en la página en vez de volver*/}
 					<span className="navbar-brand mb-0 h1">Volver</span>
-				</Link>
+				</a>
 			
 
 				<div className="dropdown">

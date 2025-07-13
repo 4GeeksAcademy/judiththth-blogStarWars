@@ -2,7 +2,7 @@ import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import { CharacterCard } from "../components/CharacterCard.jsx";
 import { PlanetCard } from "../components/PlanetCard.jsx";
 import { useEffect, useState } from "react";
-import { getCharacters, getPlanets, getVehicles } from "../services/starwarsServices.js";
+import { getCharacters, getPlanets, } from "../services/starwarsServices.js";
 
 export const Home = () => {
 
@@ -14,10 +14,8 @@ export const Home = () => {
 
 		getPlanets()
 			.then((data) => dispatch({ type: "update_planets", payload: data }))
-
-		getVehicles()
-			.then((data) => dispatch({ type: "update_vehicles", payload: data }))
 	}, []);
+
 
 
 	return (
@@ -40,7 +38,8 @@ export const Home = () => {
 							<PlanetCard name={item.properties.name} id={item.uid} population={item.properties.population} diameter={item.properties.diameter}  /></div>)}
 				</div>
 			</div>
-			
+
+						
 		</div>
 	);
 }; 
