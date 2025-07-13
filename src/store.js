@@ -1,8 +1,8 @@
 export const initialStore = () => {
   return {
     characters: [],
-    vehicles: [],
     planets: [],
+    vehicles: [],
     favs: []
   }
 }
