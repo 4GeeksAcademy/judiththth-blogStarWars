@@ -19,7 +19,7 @@ export const PlanetCard = ({ name, id, population, diameter}) => {
                 <p className="card-text text-start">Superficie: {diameter}</p>
                 
                 <div className="d-flex justify-content-between">
-                    <NavLink to={`/details/planet/${id}`} className="btn btn-primary">Leer más</NavLink>
+                    <NavLink to={`/details/planet/${id}`} className="btn LeerMas">Leer más</NavLink>
                     <button className="btn btn-danger" onClick={addFavs}><i className="fa-regular fa-heart"></i>
                     </button>
                 </div>

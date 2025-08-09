@@ -35,6 +35,7 @@ export async function getPlanets() {
 };
 
 export function getDetailInfo(type, id) {
-	return fetch(`https://www.swapi.tech/api/${type}/${id}`)
-		.then(res => res.json());
-};
+    const endpoint = type === "character" ? "people" : "planets";
+    return fetch(`https://www.swapi.tech/api/${endpoint}/${id}`)
+        .then(res => res.json());
+}

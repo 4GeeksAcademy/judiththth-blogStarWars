@@ -20,7 +20,7 @@ export const Navbar = () => {
 			
 
 				<div className="dropdown">
-					<button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<button className="btn Favs dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Favoritos <i className="fa-regular fa-heart"></i>
 					</button>
 					<ul className="dropdown-menu">

@@ -1,0 +1,28 @@
+.bg-space {               
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://cdn.pixabay.com/photo/2020/03/30/13/29/space-4984262_1280.jpg");
+  color: white; 
+}
+
+.lightsaber-divider {
+  height: 6px;
+  width: 80%;
+  margin: 0 auto;
+  background: #f39797;
+  box-shadow:
+    0 0 8px #ff0000,
+    0 0 20px #ff0000,
+    0 0 30px #ff4d4d,
+    0 0 40px #ff1a1a,
+    0 0 50px #ff0000;
+  border-radius: 3px;
+}
+
+.LeerMas {
+    background-color: aqua;
+}
+
+.Favs {
+    background-color: rgb(211, 149, 252);
+}
