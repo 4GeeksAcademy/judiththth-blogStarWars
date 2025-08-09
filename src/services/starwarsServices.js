@@ -1,57 +1,40 @@
 import { useParams } from "react-router-dom";
 
-	export async function getCharacters() {
-		try {
-			let response = await fetch("https://www.swapi.tech/api/people/?expanded=true", {method: "GET"})
-            
-			let data = await response.json()
+export async function getCharacters() {
+	try {
+		let response = await fetch("https://www.swapi.tech/api/people/?expanded=true", { method: "GET" })
 
-			if (response.status === 200) {
-				return data.results
-            }
+		let data = await response.json()
+
+		if (response.status === 200) {
+			return data.results
 		}
-				
-		catch (error) {
-			console.log(error);
+	}
 
+	catch (error) {
+		console.log(error);
+
+	}
+};
+
+export async function getPlanets() {
+	try {
+		let response = await fetch("https://www.swapi.tech/api/planets/?expanded=true", { method: "GET" })
+
+		let data = await response.json()
+
+		if (response.status === 200) {
+			return data.results
 		}
-	};
+	}
 
-	export async function getPlanets() {
-		try {
-			let response = await fetch("https://www.swapi.tech/api/planets/?expanded=true", {method: "GET"})
-            
-			let data = await response.json()
+	catch (error) {
+		console.log(error);
 
-			if (response.status === 200) {
-                return data.results
-            }
-		}
-				
-		catch (error) {
-			console.log(error);
+	}
+};
 
-		}
-	};
-
-				
-		export async function getDetailInfo(id) {
-						
-		try {
-			let response = await fetch("https://www.swapi.tech/api/people/"+id, {method: "GET"})
-            
-			let data = await response.json()
-
-			if (response.status === 200) {
-                return data.result
-            }
-			console.log(data);
-			
-		}
-				
-		catch (error) {
-			console.log(error);
-
-		}
-	};
-	
+export function getDetailInfo(type, id) {
+	return fetch(`https://www.swapi.tech/api/${type}/${id}`)
+		.then(res => res.json());
+};

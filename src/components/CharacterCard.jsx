@@ -19,7 +19,7 @@ export const CharacterCard = ({ name, id, gender, hair, eyes }) => {
                 <p className="card-text text-start">Color de pelo: {hair}</p>
                 <p className="card-text text-start">Color de ojos: {eyes}</p>
                 <div className="d-flex justify-content-between">
-                    <NavLink to={"/details/"+id} className="btn btn-primary">Leer más</NavLink>
+                    <NavLink to={`/details/character/${id}`} className="btn btn-primary">Leer más</NavLink>
                     <button className="btn btn-danger" onClick={addFavs}><i className="fa-regular fa-heart"></i>
                     </button>
                 </div>
